@@ -63,9 +63,9 @@ namespace Linq.DataAccess.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_createSimpleTable")]
-		public int sp_createSimpleTable([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(500)")] string input)
+		public int sp_createSimpleTable([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(70)")] string input, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string json)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), input);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), input, json);
 			return ((int)(result.ReturnValue));
 		}
 	}
