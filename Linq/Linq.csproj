@@ -162,6 +162,16 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Linq.Business\Linq.Business.csproj">
+      <Project>{2696F9F7-471D-45F9-A320-0773E268B864}</Project>
+      <Name>Linq.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Linq.Common\Linq.Common.csproj">
+      <Project>{CA0D9E11-D718-4BAD-9C6E-A13EF34EDE8A}</Project>
+      <Name>Linq.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
