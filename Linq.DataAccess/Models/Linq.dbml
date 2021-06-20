@@ -1,8 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Linq_project" Class="LinqDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=Linq_project;Integrated Security=True;Persist Security Info=True" SettingsObjectName="Linq.DataAccess.Properties.Settings" SettingsPropertyName="Linq_projectConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=Linq_project;Persist Security Info=True;User ID=linq" SettingsObjectName="Linq.DataAccess.Properties.Settings" SettingsPropertyName="Linq_projectConnectionString1" Provider="System.Data.SqlClient" />
   <Function Name="dbo.sp_createSimpleTable" Method="sp_createSimpleTable">
     <Parameter Name="input" Type="System.String" DbType="VarChar(70)" />
     <Parameter Name="json" Type="System.String" DbType="VarChar(100)" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_getSimpleTable" Method="sp_getSimpleTable">
+    <ElementType Name="sp_getSimpleTableResult">
+      <Column Name="lqID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="lq_data" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="lq_fullInput" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="lq_response" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="lq_creaDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_deleteSimpleTable" Method="sp_deleteSimpleTable">
+    <Parameter Name="ID" Parameter="iD" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_updateSimpleTable" Method="sp_updateSimpleTable">
+    <Parameter Name="ID" Parameter="iD" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="input" Type="System.String" DbType="VarChar(70)" />
+    <Parameter Name="json" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_getSimpleTableByID" Method="sp_getSimpleTableByID">
+    <Parameter Name="lqID" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <ElementType Name="sp_getSimpleTableByIDResult">
+      <Column Name="lqID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="lq_data" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="lq_fullInput" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="lq_response" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="lq_creaDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="lq_status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
   </Function>
 </Database>
