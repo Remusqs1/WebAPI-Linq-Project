@@ -33,7 +33,7 @@ namespace Linq.DataAccess.Models
     #endregion
 		
 		public LinqDataContext() : 
-				base(global::Linq.DataAccess.Properties.Settings.Default.Linq_projectConnectionString, mappingSource)
+				base(global::Linq.DataAccess.Properties.Settings.Default.Linq_projectConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -67,6 +67,248 @@ namespace Linq.DataAccess.Models
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), input, json);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_getSimpleTable")]
+		public ISingleResult<sp_getSimpleTableResult> sp_getSimpleTable()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_getSimpleTableResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_deleteSimpleTable")]
+		public int sp_deleteSimpleTable([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Decimal(18,0)")] System.Nullable<decimal> iD)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_updateSimpleTable")]
+		public int sp_updateSimpleTable([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Decimal(18,0)")] System.Nullable<decimal> iD, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(70)")] string input, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string json)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, input, json);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_getSimpleTableByID")]
+		public ISingleResult<sp_getSimpleTableByIDResult> sp_getSimpleTableByID([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,0)")] System.Nullable<decimal> lqID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), lqID);
+			return ((ISingleResult<sp_getSimpleTableByIDResult>)(result.ReturnValue));
+		}
+	}
+	
+	public partial class sp_getSimpleTableResult
+	{
+		
+		private decimal _lqID;
+		
+		private string _lq_data;
+		
+		private string _lq_fullInput;
+		
+		private string _lq_response;
+		
+		private System.DateTime _lq_creaDate;
+		
+		public sp_getSimpleTableResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lqID", DbType="Decimal(18,0) NOT NULL")]
+		public decimal lqID
+		{
+			get
+			{
+				return this._lqID;
+			}
+			set
+			{
+				if ((this._lqID != value))
+				{
+					this._lqID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lq_data", DbType="VarChar(70)")]
+		public string lq_data
+		{
+			get
+			{
+				return this._lq_data;
+			}
+			set
+			{
+				if ((this._lq_data != value))
+				{
+					this._lq_data = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lq_fullInput", DbType="VarChar(100)")]
+		public string lq_fullInput
+		{
+			get
+			{
+				return this._lq_fullInput;
+			}
+			set
+			{
+				if ((this._lq_fullInput != value))
+				{
+					this._lq_fullInput = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lq_response", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string lq_response
+		{
+			get
+			{
+				return this._lq_response;
+			}
+			set
+			{
+				if ((this._lq_response != value))
+				{
+					this._lq_response = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lq_creaDate", DbType="DateTime NOT NULL")]
+		public System.DateTime lq_creaDate
+		{
+			get
+			{
+				return this._lq_creaDate;
+			}
+			set
+			{
+				if ((this._lq_creaDate != value))
+				{
+					this._lq_creaDate = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_getSimpleTableByIDResult
+	{
+		
+		private decimal _lqID;
+		
+		private string _lq_data;
+		
+		private string _lq_fullInput;
+		
+		private string _lq_response;
+		
+		private System.DateTime _lq_creaDate;
+		
+		private bool _lq_status;
+		
+		public sp_getSimpleTableByIDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lqID", DbType="Decimal(18,0) NOT NULL")]
+		public decimal lqID
+		{
+			get
+			{
+				return this._lqID;
+			}
+			set
+			{
+				if ((this._lqID != value))
+				{
+					this._lqID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lq_data", DbType="VarChar(70) NOT NULL", CanBeNull=false)]
+		public string lq_data
+		{
+			get
+			{
+				return this._lq_data;
+			}
+			set
+			{
+				if ((this._lq_data != value))
+				{
+					this._lq_data = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lq_fullInput", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string lq_fullInput
+		{
+			get
+			{
+				return this._lq_fullInput;
+			}
+			set
+			{
+				if ((this._lq_fullInput != value))
+				{
+					this._lq_fullInput = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lq_response", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string lq_response
+		{
+			get
+			{
+				return this._lq_response;
+			}
+			set
+			{
+				if ((this._lq_response != value))
+				{
+					this._lq_response = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lq_creaDate", DbType="DateTime NOT NULL")]
+		public System.DateTime lq_creaDate
+		{
+			get
+			{
+				return this._lq_creaDate;
+			}
+			set
+			{
+				if ((this._lq_creaDate != value))
+				{
+					this._lq_creaDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lq_status", DbType="Bit NOT NULL")]
+		public bool lq_status
+		{
+			get
+			{
+				return this._lq_status;
+			}
+			set
+			{
+				if ((this._lq_status != value))
+				{
+					this._lq_status = value;
+				}
+			}
 		}
 	}
 }

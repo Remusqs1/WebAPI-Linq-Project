@@ -14,5 +14,29 @@ namespace Linq.Business
             if (result == Result.Success) output = Result.Success;
             return output;
         }
+
+        public GetDataOut GetData()
+        {
+            LinqDA dataAccess = new LinqDA();
+            return dataAccess.GetData();
+        }
+
+        public GetDataByIDOut GetDataByID(int input)
+        {
+            LinqDA dataAccess = new LinqDA();
+            return dataAccess.GetDataByID(input);
+        }
+
+        public Result DeleteData(int input)
+        {
+            LinqDA dataAccess = new LinqDA();
+            return dataAccess.DeleteData(input);
+        }
+
+        public Result UpdateData(UpdateDataIn input)
+        {
+            LinqDA dataAccess = new LinqDA();
+            return dataAccess.UpdateData(input);
+        }
     }
 }

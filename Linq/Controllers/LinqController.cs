@@ -45,5 +45,65 @@ namespace Linq.Controllers
             if (result == Result.Success) output = Result.Success;
             return output;
         }
+
+        /// <summary>
+        /// Get simpleTable data
+        /// </summary>
+        /// <param name="input"></param>
+        /// <response code="0">Success</response>
+        /// <response code="1">Error</response>
+        [HttpGet]
+        [Route("GetData")]
+        [ResponseType(typeof(GetDataOut))]
+        public GetDataOut GetData()
+        {
+            LinqBS business = new LinqBS();
+            return business.GetData();
+        }
+
+        /// <summary>
+        /// Get simpleTable data by ID
+        /// </summary>
+        /// <param name="input"></param>
+        /// <response code="0">Success</response>
+        /// <response code="1">Error</response>
+        [HttpPost]
+        [Route("GetDataByID")]
+        [ResponseType(typeof(GetDataByIDOut))]
+        public GetDataByIDOut GetDataByID(int input)
+        {
+            LinqBS business = new LinqBS();
+            return business.GetDataByID(input);
+        }
+
+        /// <summary>
+        /// Delete simpleTable data by ID
+        /// </summary>
+        /// <param name="input"></param>
+        /// <response code="0">Success</response>
+        /// <response code="1">Error</response>
+        [HttpDelete]
+        [Route("DeleteData")]
+        [ResponseType(typeof(Result))]
+        public Result DeleteData(int input)
+        {
+            LinqBS business = new LinqBS();
+            return business.DeleteData(input);
+        }
+
+        /// <summary>
+        /// Update simpleTable data by ID
+        /// </summary>
+        /// <param name="input"></param>
+        /// <response code="0">Success</response>
+        /// <response code="1">Error</response>
+        [HttpPut]
+        [Route("UpdateData")]
+        [ResponseType(typeof(Result))]
+        public Result UpdateData(UpdateDataIn input)
+        {
+            LinqBS business = new LinqBS();
+            return business.UpdateData(input);
+        }
     }
 }
